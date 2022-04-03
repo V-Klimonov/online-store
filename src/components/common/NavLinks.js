@@ -22,7 +22,7 @@ const StyledNavLink = styled(NavLink)`
 const NavLinks = () => {
   const { loading, error, data } = useQuery(LINKS_NAME);
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error ...</p>;
+  if (error) return <p>Error: {error}</p>;
   const { categories } = data;
   return (
     <>
