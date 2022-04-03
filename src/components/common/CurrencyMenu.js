@@ -6,21 +6,30 @@ const CurrencyWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  margin-right: 10px;
+  margin-right: 15px;
+`;
+const CurrencySymbol = styled.span`
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  margin-right: 3px;
 `;
 
 const CurrencyMenu = () => {
   const dispatch = useDispatch();
-  const currency = useSelector((state) => state.currency);
-  const isOpen = useSelector((state) => state.currencyDropdownIsOpen);
+  const currency = useSelector((state) => state.currency.currency);
+  const isOpen = useSelector(
+    (state) => state.currencyDropdown.currencyDropdownIsOpen
+  );
   console.log(isOpen);
   const dropdownOpenHandler = () => {
-    dispatch({ type: "DROPDOWN_HANDLE" });
+    dispatch({ type: "DROPDOWN_ISOPEN" });
   };
 
   return (
     <CurrencyWrapper onClick={() => dropdownOpenHandler()}>
-      <div>{currency}</div>
+      <CurrencySymbol>{currency}</CurrencySymbol>
       <img
         style={{
           transform: isOpen ? "rotate(180deg)" : null,

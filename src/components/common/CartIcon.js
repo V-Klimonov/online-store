@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CartBadge = styled.div`
   position: absolute;
@@ -24,9 +24,13 @@ const CartBadge = styled.div`
 
 const CartIcon = () => {
   const dispatch = useDispatch();
+  const isOpen = useSelector((state) => state.cartOverlay.cartOverlayIsOpen);
+
   const cartOpenHendler = () => {
-    dispatch({ type: "DROPDOWN_HANDLE" });
+    dispatch({ type: "CARTOVERLAY_ISOPEN" });
   };
+  console.log(isOpen);
+
   return (
     <div onClick={cartOpenHendler} style={{ position: "relative" }}>
       <img

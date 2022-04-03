@@ -1,15 +1,21 @@
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Button } from "./common";
+import CurrencyDropdownMenu from "./common/CurrencyDropdownMenu";
 import Navbar from "./common/Navbar";
-import Cart from "./pages/Cart/Cart";
-import Category from "./pages/Category/Category";
-import Home from "./pages/Home/Home";
-import ProductPage from "./pages/ProductPage/ProductPage";
+import Cart from "./pages/Cart";
+import Category from "./pages/Category";
+import Home from "./pages/Home";
+import ProductPage from "./pages/ProductPage";
 
 const App = () => {
+  const dropdownIsOpen = useSelector(
+    (state) => state.currencyDropdown.currencyDropdownIsOpen
+  );
+  console.log(dropdownIsOpen);
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <Navbar />
+      {dropdownIsOpen ? <CurrencyDropdownMenu /> : null}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="category/:category" element={<Category />} />

@@ -4,29 +4,8 @@ import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { createGlobalStyle } from "styled-components";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-
-const defaultState = {
-  currencies: [],
-  currencyDropdownIsOpen: false,
-  currency: JSON.parse(localStorage["currency"] || '"$"'),
-  cartСontents: [],
-};
-
-const reduser = (state = defaultState, action) => {
-  switch (action.type) {
-    case "DROPDOWN_HANDLE":
-      return {
-        ...state,
-        currencyDropdownIsOpen: !state.currencyDropdownIsOpen,
-      };
-
-    default:
-      return state;
-  }
-};
-const store = createStore(reduser);
+import { store } from "./store";
 
 const GlobalStyle = createGlobalStyle`
   body {
