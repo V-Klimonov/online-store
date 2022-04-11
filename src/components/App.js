@@ -11,7 +11,7 @@ const App = () => {
   const dropdownIsOpen = useSelector(
     (state) => state.currencyDropdown.currencyDropdownIsOpen
   );
-  console.log(dropdownIsOpen);
+
   return (
     <div style={{ position: "relative" }}>
       <Navbar />

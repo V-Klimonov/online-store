@@ -1,17 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import CartIcon from "./CartIcon";
 import CurrencyMenu from "./CurrencyMenu";
 import NavLinks from "./NavLinks";
-
-const Logo = styled(NavLink)`
-  font-family: "Kaushan Script", cursive;
-  font-size: 34px;
-  color: #5ece7b;
-  text-decoration: none;
-  margin-right: 40px;
-`;
+import { Logo } from "../styled/Logo";
 
 const NavbarWrapper = styled.div`
   display: flex;

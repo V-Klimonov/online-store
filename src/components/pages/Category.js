@@ -21,7 +21,7 @@ const TitleCategory = styled.h1`
   }
 `;
 
-const CategoryInner = styled.h1`
+const CategoryInner = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -63,7 +63,7 @@ const Category = () => {
   if (error) return <p>Error: {error}</p>;
 
   const { name, products } = data.category;
-  console.log(name, products);
+
   return (
     <CategoryWrapper>
       <TitleCategory>{name}</TitleCategory>
